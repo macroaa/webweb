@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>作業三:運用css</title>
+    <link rel="stylesheet" href="my.css">
+</head>
+<body>
+    <h1 id="myname">危浚宏 s07352009</h1>
+    <h2>興趣</h2>
+    <ul>
+        <li>玩滑板</li>
+        <li>打球</li>
+        <li>散步</li>
+    </ul>
+    <h2>簡歷</h2>
+    <p>
+        <ol>
+            <li>
+                學習最有印象科目:
+                大一時的羅設實驗課，動手接電路板，從甚麼都不知道到後面看得懂圖並如何去接出老師出的題目。
+            </li>
+            <br>
+            <li>
+                團隊合作的事:
+                大三與同學一起做的<b style="color:blue; text-decoration: underline;">動作偵測的專題</b>，因為需要要標準動作的關係，所以要去找老師取得標準動作與進行偵測判斷。
+            </li>
+        </ol>
+    </p>
+    <table id="mytable">
+        <tr>
+            <th>學科名稱</th>
+            <th>內容</th>
+            <th>學科名稱</th>
+            <th>內容</th>
+        </tr>
+        <tr>
+            <th>使用者經驗</th>
+            <td>選擇自己要觀察那一種使用者並想一個網站會讓該使用者來使用</td>
+            <th>人文:西洋藝術欣賞</th>
+            <td>介紹各個時期相關藝術內容</td>
+        </tr>
+        <tr>
+            <th>笑話聽讀輕鬆學英文</th>
+            <td>英文替代課程，用笑話學英文</td>
+            <th>Web程式設計</th>
+            <td>網頁設計html css</td>
+        </tr>
+    </table>
+    <p>
+        <button id="switchcolor" type="button">切換顏色</button>
+        <button id="show" type="button">顯示技能</button>
+        <button id="remove" type="button">移除技能</button>
+    </p>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(function () {
+            $('#switchcolor').click(function () {
+                $("#myname").toggleClass("blue");
+            });
+            $('#show').click(function () {
+                let myskill = ["通靈", "軟體", "睡覺", "使用php"];
+                let myskillstr = "<div class=\"mydiv\"><h2>技能</h2><ul>";
+                for (let s of myskill) {
+                    myskillstr += "<li>" + s + "</li>";
+                }
+                myskillstr += "</ul></div>";
+                $(myskillstr).insertAfter("#mytable");
+            })
+            $('#remove').click(function () {
+                $("#mytable~.mydiv:first").remove();
+            })
+        });
+
+    </script>
+</body>
+</html>
